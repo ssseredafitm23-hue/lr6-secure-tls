@@ -1,0 +1,72 @@
+=== LAB6 SECURITY LOG ANALYSIS ===
+Total records: 141
+Server records: 106
+Client records: 35
+Malformed records: 0
+
+=== SERVER EVENTS ===
+conn.accepted: 24
+conn.closed: 24
+tls.handshake.ok: 20
+auth.ok: 11
+auth.fail: 7
+data.ok: 6
+tls.handshake.fail: 4
+session.end: 3
+data.invalid_token: 2
+server.started: 1
+protocol.error: 1
+data.bad_hmac: 1
+data.rejected: 1
+data.replay_rejected: 1
+
+=== TLS STATISTICS ===
+Successful handshakes: 20
+Failed handshakes: 4
+
+Negotiated TLS versions:
+TLSv1.3: 17
+TLSv1.2: 3
+
+Negotiated cipher suites:
+TLS_AES_256_GCM_SHA384: 17
+ECDHE-RSA-AES256-GCM-SHA384: 3
+
+=== AUTHENTICATION ===
+Successful: 11
+Failed: 7
+
+=== DATA INTEGRITY AND ACCESS ===
+Accepted messages: 6
+Invalid tokens: 2
+Invalid HMAC: 1
+Rejected sequences: 1
+Accepted payload bytes: 69
+
+=== SECURITY EVENTS ===
+server:auth.fail: 7
+client:auth.fail: 5
+server:tls.handshake.fail: 4
+server:data.invalid_token: 2
+client:tls.certificate.fail: 1
+server:protocol.error: 1
+server:data.bad_hmac: 1
+server:data.rejected: 1
+server:data.replay_rejected: 1
+
+=== TLS FAILURE REASONS ===
+SSLV3_ALERT_BAD_CERTIFICATE: 1
+62: 1
+TLSV1_ALERT_UNKNOWN_CA: 1
+UNSUPPORTED_PROTOCOL: 1
+WRONG_VERSION_NUMBER: 1
+
+=== ANOMALY DETECTION ===
+Threshold: 3
+Window: 300 seconds
+Detected anomalies: 1
+{"event": "AUTH_ANOMALY", "severity": "ALERT", "ts": "2026-11-26T00:21:22.911224+00:00", "ip": "127.0.0.1", "user": "alice", "failures": 3, "window_seconds": 300}
+
+=== SUMMARY ===
+SECURITY ALERT: Repeated authentication failures
+Analysis completed

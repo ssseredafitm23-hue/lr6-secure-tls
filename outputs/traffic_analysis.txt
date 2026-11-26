@@ -1,0 +1,6 @@
+=== TLS TRAFFIC ANALYSIS ===
+Capture interface: lo
+Server: 127.0.0.1:8443
+Capture size: 7252 bytes
+Plaintext detected: False
+[PASS] Plaintext not detected

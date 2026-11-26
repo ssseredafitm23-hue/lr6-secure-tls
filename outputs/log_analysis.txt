@@ -1,0 +1,59 @@
+=== LAB6 SECURITY LOG ANALYSIS ===
+Total records: 74
+Server records: 39
+Client records: 35
+Malformed records: 0
+
+=== SERVER EVENTS ===
+conn.accepted: 9
+conn.closed: 9
+tls.handshake.ok: 8
+auth.fail: 5
+auth.ok: 2
+data.ok: 2
+session.end: 2
+server.started: 1
+tls.handshake.fail: 1
+
+=== TLS STATISTICS ===
+Successful handshakes: 8
+Failed handshakes: 1
+
+Negotiated TLS versions:
+TLSv1.3: 6
+TLSv1.2: 2
+
+Negotiated cipher suites:
+TLS_AES_256_GCM_SHA384: 6
+ECDHE-RSA-AES256-GCM-SHA384: 2
+
+=== AUTHENTICATION ===
+Successful: 2
+Failed: 5
+
+=== DATA INTEGRITY AND ACCESS ===
+Accepted messages: 2
+Invalid tokens: 0
+Invalid HMAC: 0
+Rejected sequences: 0
+Accepted payload bytes: 33
+
+=== SECURITY EVENTS ===
+server:auth.fail: 5
+client:auth.fail: 5
+server:tls.handshake.fail: 1
+client:tls.certificate.fail: 1
+
+=== TLS FAILURE REASONS ===
+SSLV3_ALERT_BAD_CERTIFICATE: 1
+62: 1
+
+=== ANOMALY DETECTION ===
+Threshold: 3
+Window: 300 seconds
+Detected anomalies: 1
+{"event": "AUTH_ANOMALY", "severity": "ALERT", "ts": "2026-11-26T00:21:22.911224+00:00", "ip": "127.0.0.1", "user": "alice", "failures": 3, "window_seconds": 300}
+
+=== SUMMARY ===
+SECURITY ALERT: Repeated authentication failures
+Analysis completed
